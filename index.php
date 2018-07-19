@@ -27,11 +27,14 @@ class gunky {
 	public function setGunkyShiny(string $newGunkyShiny) : void {
 		$newGunkyShiny = trim($newGunkyShiny);
 		$newGunkyShiny = filter_var($newGunkyShiny, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
-		if(empty($newGunkyShiny) === true)
+		if(empty($newGunkyShiny) === true) {
 			throw(new \InvalidArgumentException("Gunky Shiny cannot be empty"));
-	}
+		}
 		if(strlen($newGunkyShiny) > 100) {
 			throw(new \RangeException("Characters Exceed Limit"));
 			}
 		$this->gunkyShiny = $newGunkyShiny;
+
+
+	}
 }
